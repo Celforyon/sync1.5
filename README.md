@@ -17,3 +17,9 @@ You can generate one with `head -c 20 /dev/urandom|sha1sum` (from Firefox docume
 - WORKERS (defaults to 1)
 - TIMEOUT (defaults to 30, unit: seconds)
 - FORCE\_WSGI\_ENVIRON (defaults to false)
+
+## Client configuration
+In `about:config`
+```
+identity.sync.tokenserver.uri = $PUBLIC_URL/token/1.0/sync/1.5
+```
