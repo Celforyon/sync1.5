@@ -1,0 +1,16 @@
+#!/bin/bash
+
+f_ini=syncserver.ini
+
+sed -ri \
+	-e "s/(port) *=.*/\1 = $PORT/"                                    \
+	-e "s/(workers) *=.*/\1 = $WORKERS/"                              \
+	-e "s/(timeout) *=.*/\1 = $TIMEOUT/"                              \
+	-e "s"$'\001'"(public_url) *=.*"$'\001'"\1 = $PUBLIC_URL/"$'\001' \
+	-e "s"$'\001'"(sqluri) *=.*"$'\001'"\1 = $SQLURI"$'\001'          \
+	-e "s"$'\001'"(secret) *=.*"$'\001'"\1 = $SECRET"$'\001'          \
+	-e "s/(allow_new_users) *=.*/\1 = $ALLOW_NEW_USERS/"              \
+	-e "s/(force_wsgi_environ) *=.*/\1 = $ALLOW_NEW_USERS/"           \
+	$f_ini
+
+make serve
